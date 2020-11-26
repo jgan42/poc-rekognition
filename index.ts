@@ -12,7 +12,7 @@ const getBlob = async (imageUrl: string) => {
 };
 
 const getRekognitionData = async (imageUrl: string) => {
-  const data = await R.detectLabels({ Image: { Bytes: await getBlob(imageUrl) } }).promise();
+  const data = await R.detectLabels({ Image: { Bytes: '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgID' } }).promise();
   console.log('data', data);
 };
 
