@@ -5,14 +5,14 @@ AWS.config.update({ region: 'eu-west-1' });
 
 const R = new AWS.Rekognition();
 
-const getBlob = async (imageUrl: string) => {
-  const response = await fetch(imageUrl);
-  return response.buffer();
-};
+const getBlob = async (imageUrl: string) => (await fetch(imageUrl)).buffer();
 
 const getRekognitionData = async (imageUrl: string) => {
-  const data = await R.detectLabels({ Image: { Bytes: await getBlob(imageUrl) } }).promise();
-  console.log('data', data);
+  const Bytes = await getBlob(imageUrl);
+  const labels = await R.detectLabels({ Image: { Bytes } }).promise();
+  const faces = await R.detectFaces({ Image: { Bytes } }).promise();
+  const texts = await R.detectText({ Image: { Bytes } }).promise();
+  console.log('data', labels, faces, texts);
 };
 
 const urls = [
