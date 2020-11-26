@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "resolveJsonModule": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": ["ES2020", "DOM"],
+    "target": "ES2019",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "incremental": true,
+
+    "sourceMap": true,
+    "outDir": "build/",
+    "rootDir": "./src"
+  }
+}
