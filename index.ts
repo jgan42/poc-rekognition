@@ -7,12 +7,11 @@ const R = new AWS.Rekognition();
 
 const getBlob = async (imageUrl: string) => {
   const response = await fetch(imageUrl);
-  const buffer = await response.buffer();
-  return buffer.toString('base64');
+  return response.buffer();
 };
 
 const getRekognitionData = async (imageUrl: string) => {
-  const data = await R.detectLabels({ Image: { url: imageUrl } } as any).promise();
+  const data = await R.detectLabels({ Image: { Bytes: await getBlob(imageUrl) } }).promise();
   console.log('data', data);
 };
 
