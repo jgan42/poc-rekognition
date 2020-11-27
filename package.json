@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "2.799.0",
+    "firebase": "^8.1.1",
     "node-fetch": "2.6.1",
     "ts-node": "9.0.0"
   },
